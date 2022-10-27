@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 12:39:20 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/26 03:39:40 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/10/27 14:34:26 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "utils.h"
 #include "defines.h"
 #include "mlx_optimize.h"
+#include "map.h"
 
 void	swap_point(t_point *a, t_point *b)
 {
@@ -41,20 +42,23 @@ void	dbl_free(char **ptr)
 
 void	draw_background(t_mlx *mlx)
 {
-	t_point	p;
+	t_point	a;
+	t_point	b;
 
-	p.coord[Y] = 0;
-	p.color = 0;
-	while (p.coord[Y] < WY)
+	mlx->tf.istf = NO;
+	a.color = mlx->bg_color_f;
+	b.color = mlx->bg_color_t;
+	a.coord[X] = 0;
+	a.coord[Y] = 0;
+	b.coord[X] = WX;
+	b.coord[Y] = 0;
+	while (a.coord[Y] <= WY)
 	{
-		p.coord[X] = 0;
-		while (p.coord[X] < WX)
-		{
-			mlx_pix_put(&mlx->img, p);
-			p.coord[X]++;
-		}
-		p.coord[Y]++;
+		draw_line(mlx, a, b);
+		a.coord[Y]++;
+		b.coord[Y]++;
 	}
+	mlx->tf.istf = YES;
 }
 
 void	free_map(t_map *map)

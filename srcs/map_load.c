@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 10:57:24 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/27 00:41:28 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/10/27 21:42:43 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ static void	init_map(t_map *map)
 {
 	map->mapx = 0;
 	map->mapy = 0;
-	map->scale = 50;
+	map->scale = 30;
 }
 
 void	load_map(t_map *map, char *path)

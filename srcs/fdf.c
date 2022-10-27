@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 10:18:17 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/27 00:51:11 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/10/27 22:11:46 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 #include "key.h"
 #include "X11/X.h"
 #include "utils.h"
+#include "color.h"
+#include "transform.h"
 
 static void	mlx_setup(t_mlx *mlx)
 {
@@ -48,11 +50,11 @@ int	main(int argc, char **argv)
 		error(ERR_ARGS);
 	load_map(&mlx.map, argv[1]);
 	mlx_setup(&mlx);
+	color_setup(&mlx);
+	transform_setup(&mlx);
 	if (draw_map(&mlx) < 0)
 		error(ERR_MAP);
-	/*if (draw_map(&meta, FIT) < 0)
-		terminate(ERR_MAP);
-	mlx_hook(meta.vars.win, 3, 0, key_release, &meta);
+ /* mlx_hook(meta.vars.win, 3, 0, key_release, &meta);
 	mlx_hook(meta.vars.win, 4, 0, mouse_press, &meta);
 	mlx_hook(meta.vars.win, 5, 0, mouse_release, &meta);
 	mlx_hook(meta.vars.win, 6, 0, mouse_move, &meta);
@@ -60,7 +62,9 @@ int	main(int argc, char **argv)
 	mlx_loop_hook(mlx.mlx_ptr, no_event, &mlx);
 	mlx_hook(mlx.win_ptr, 3, 2, key_release, &mlx);
 	mlx_loop(mlx.mlx_ptr);
+
 	free_map(&mlx.map);
+	mlx_destroy_image(mlx.mlx_ptr, mlx.img.mlx_img);
 	mlx_destroy_display(mlx.mlx_ptr);
 	free (mlx.mlx_ptr);
 	return (0);

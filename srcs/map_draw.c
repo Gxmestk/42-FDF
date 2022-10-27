@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 02:45:30 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/27 00:49:44 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/10/27 22:37:37 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,19 @@ static void	bresenham_m1(t_img *img, t_point a, t_point b, t_slope *m)
 	gra.t = b.coord[Y] - a.coord[Y];
 	gra.cdif = difcolor(a, b);
 	gra.ori = itoc(a.color);
-	while (a.coord[Y] <= b.coord[Y] || a.coord[X] <= b.coord[X])
+	while (a.coord[Y] <= b.coord[Y])
 	{
 		mlx_gradient(&a, &gra, b.coord[Y] - a.coord[Y]);
 		mlx_pix_put(img, a);
 		if (a.coord[Y] <= b.coord[Y])
 			a.coord[Y]++;
-		else
-			a.coord[Y]--;
 		if (m->p >= 0)
 		{
 			m->p += 2 * (m->dx - m->dy);
-			a.coord[X]++;
+			if (a.coord[X] < b.coord[X])
+				a.coord[X]++;
+			else if (a.coord[X] > b.coord[X])
+				a.coord[X]--;
 		}
 		else
 			m->p += 2 * m->dx;
@@ -52,7 +53,7 @@ static void	bresenham_l1(t_img *img, t_point a, t_point b, t_slope *m)
 	gra.t = b.coord[X] - a.coord[X];
 	gra.cdif = difcolor(a, b);
 	gra.ori = itoc(a.color);
-	while (a.coord[X] <= b.coord[X] || a.coord[Y] != b.coord[Y])
+	while (a.coord[X] <= b.coord[X])
 	{
 		mlx_gradient(&a, &gra, b.coord[X] - a.coord[X]);
 		mlx_pix_put(img, a);
@@ -62,7 +63,7 @@ static void	bresenham_l1(t_img *img, t_point a, t_point b, t_slope *m)
 			m->p += 2 * (m->dy - m->dx);
 			if (a.coord[Y] < b.coord[Y])
 				a.coord[Y]++;
-			else
+			else if(a.coord[Y] > b.coord[Y])
 				a.coord[Y]--;
 		}
 		else
@@ -70,33 +71,31 @@ static void	bresenham_l1(t_img *img, t_point a, t_point b, t_slope *m)
 	}
 }
 
-static void	draw_line(t_img *img, t_point a, t_point b)
+void	draw_line(t_mlx *mlx, t_point a, t_point b)
 {
 	t_slope	m;
 
-	isometric(&a);
-	isometric(&b);
+	if (mlx->tf.istf)
+		transform(mlx, &a, &b);
 	if (b.coord[X] < a.coord[X])
 		swap_point(&a, &b);
-	if (a.coord[Z] > 0)
-		a.color = RED_PIXEL;
-	if (b.coord[Z] > 0)
-		b.color = RED_PIXEL;
 	m.dx = abs(b.coord[X] - a.coord[X]);
 	m.dy = abs(b.coord[Y] - a.coord[Y]);
 	if (m.dy > m.dx)
 	{
+		if (b.coord[Y] < a.coord[Y])
+			swap_point(&a, &b);
 		m.p = 2 * m.dx - m.dy;
-		bresenham_m1(img, a, b, &m);
+		bresenham_m1(&mlx->img, a, b, &m);
 	}
 	else
 	{
 		m.p = 2 * m.dy - m.dx;
-		bresenham_l1(img, a, b, &m);
+		bresenham_l1(&mlx->img, a, b, &m);
 	}
 }
 
-static void	draw_wireframe(t_mlx *mlx)
+void	draw_wireframe(t_mlx *mlx)
 {
 	t_point		a;
 	int			i;
@@ -110,9 +109,9 @@ static void	draw_wireframe(t_mlx *mlx)
 		{
 			a = mlx->map.p[i][j];
 			if (j < mlx->map.mapx - 1)
-				draw_line(&mlx->img, a, mlx->map.p[i][j + 1]);	
+				draw_line(mlx, a, mlx->map.p[i][j + 1]);	
 			if (i < mlx->map.mapy - 1)
-				draw_line(&mlx->img, a, mlx->map.p[i + 1][j]);
+				draw_line(mlx, a, mlx->map.p[i + 1][j]);
 			j++;
 		}
 		i++;
@@ -124,7 +123,10 @@ int	draw_map(t_mlx *mlx)
 	if (mlx->win_ptr == NULL)
 		return (-1);
 	draw_background(mlx);
-	draw_wireframe(mlx);
+	//draw_wireframe(mlx);
+	t_point a = {.coord[X] = 0, .coord[Y] = 100, .coord[Z] = 0 ,.color = PEACH_PASTEL_PIXEL};
+	t_point b = {.coord[X] = 700, .coord[Y] = 100, .coord[Z] = 0 ,.color = DARK_GRAY_PIXEL};
+	draw_line(mlx, a, b);
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img.mlx_img, 0, 0);
 	return (0);
 }

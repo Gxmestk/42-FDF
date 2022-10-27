@@ -6,7 +6,7 @@
 #    By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/22 06:51:52 by tkhemniw          #+#    #+#              #
-#    Updated: 2022/10/27 12:22:22 by tkhemniw         ###   ########.fr        #
+#    Updated: 2022/10/27 22:18:25 by tkhemniw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,7 +68,9 @@ SRCS				= $(SRC_DIR)/fdf.c \
 					  $(SRC_DIR)/rotate.c \
 					  $(SRC_DIR)/translate.c \
 					  $(SRC_DIR)/zoom.c \
-					  $(SRC_DIR)/atoi_form.c
+					  $(SRC_DIR)/atoi_form.c \
+					  $(SRC_DIR)/transform.c \
+					  $(SRC_DIR)/mouse.c
 
 #Object files 
 OBJS 				= $(SRCS:%.c=%.o)
@@ -92,7 +94,7 @@ libs:
 
 #.c to .o
 .c.o:
-					$(CC) $(CFLAGS) $(MINILIBX_OBJ_FLAG)  $< -o $@ -c
+					$(CC) $(CFLAGS) $(MINILIBX_OBJ_FLAG) $< -o $@ -c
 
 #Cleaner
 clean:
@@ -116,6 +118,9 @@ code:
 codeh:
 					code $(INCS_DIR)/*
 
+debug:				$(OBJS) libs
+						$(CC) $(CFLAGS) $(OBJS) $(LIBS) $(MINILIBX_CC_FLAGS) -g -o $(NAME)
+
 norm:
 					clear && norminette $(SRC_DIR) $(LIBFT_DIR) $(PRINTF_DIR) | grep "Error"
 normh:
@@ -124,5 +129,5 @@ normf:
 					clear && norminette -R CheckForbiddenSourceHeader $(SRC_DIR) $(LIBFT_DIR) $(PRINTF_DIR) | grep "Error"
 
 #.PHONY
-.PHONY:				all bonus libs clean fclean re code codeh norm normh normf
+.PHONY:				all bonus libs clean fclean re code codeh norm normh normf debug
 	

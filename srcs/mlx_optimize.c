@@ -6,13 +6,14 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 07:41:56 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/26 09:34:46 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/10/27 21:20:24 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx_optimize.h"
 #include "defines.h"
 #include "color.h"
+#include <math.h>
 #include <stdio.h>
 
 void	mlx_gradient(t_point *a, t_gradient *gra, int dis)
@@ -23,6 +24,7 @@ void	mlx_gradient(t_point *a, t_gradient *gra, int dis)
 	ac = itoc(a->color);
 	if (gra->t == 0)
 		return ;
+
 	frac = 1 - (float)dis / (float)gra->t;
 	ac.red = gra->cdif.red * frac + gra->ori.red;
 	ac.green = gra->cdif.green * frac + gra->ori.green;
