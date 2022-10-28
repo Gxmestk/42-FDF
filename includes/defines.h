@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 07:02:07 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/27 22:25:17 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/10/28 13:52:32 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 # define LIGHT_GRAY_PIXEL 0xAEAEAE
 # define PEACH_PASTEL_PIXEL 0xFF7B74
 # define DARK_GRAY_PIXEL 0x5A6776
+# define APLLE 69
+# define LINUX 96
 
 typedef	struct s_color
 {
@@ -106,5 +108,12 @@ typedef struct s_mlx
 	void		*mlx_ptr;
 	void		*win_ptr;
 }	t_mlx;
+
+
+#ifdef __APPLE__
+#define OS 69
+#elif __linux__
+#define OS 96
+#endif
 
 #endif
