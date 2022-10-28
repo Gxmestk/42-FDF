@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 07:02:07 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/28 13:52:32 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/10/28 14:01:40 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,10 +110,11 @@ typedef struct s_mlx
 }	t_mlx;
 
 
-#ifdef __APPLE__
-#define OS 69
-#elif __linux__
-#define OS 96
+#ifdef MLX_INT_H
+# define MLX_INT_H
+
+int	mlx_destroy_display(void *ptr);
+
 #endif
 
 #endif
