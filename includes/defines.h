@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 07:02:07 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/28 14:03:11 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/10/28 14:06:36 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,13 +108,5 @@ typedef struct s_mlx
 	void		*mlx_ptr;
 	void		*win_ptr;
 }	t_mlx;
-
-
-#ifndef MLX_INT_H
-# define MLX_INT_H
-
-int	mlx_destroy_display(void *ptr);
-
-#endif
 
 #endif

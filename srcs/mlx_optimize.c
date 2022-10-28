@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 07:41:56 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/27 21:20:24 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/10/28 14:08:02 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,17 @@
 #include <math.h>
 #include <stdio.h>
 
+#ifndef MLX_INT_H
+# define MLX_INT_H
+
+int	mlx_destroy_display(void *ptr)
+{
+	(void)ptr;
+	return (0);
+}
+
+#endif
+
 void	mlx_gradient(t_point *a, t_gradient *gra, int dis)
 {
 	float	frac;
@@ -24,7 +35,6 @@ void	mlx_gradient(t_point *a, t_gradient *gra, int dis)
 	ac = itoc(a->color);
 	if (gra->t == 0)
 		return ;
-
 	frac = 1 - (float)dis / (float)gra->t;
 	ac.red = gra->cdif.red * frac + gra->ori.red;
 	ac.green = gra->cdif.green * frac + gra->ori.green;
