@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 07:41:56 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/28 14:08:02 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/10/28 14:13:09 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,11 @@
 #include <math.h>
 #include <stdio.h>
 
-#ifndef MLX_INT_H
-# define MLX_INT_H
-
 int	mlx_destroy_display(void *ptr)
 {
 	(void)ptr;
 	return (0);
 }
-
-#endif
 
 void	mlx_gradient(t_point *a, t_gradient *gra, int dis)
 {
