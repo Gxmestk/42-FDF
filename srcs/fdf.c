@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 10:18:17 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/27 22:11:46 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/10/28 13:35:56 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "map.h"
 #include "mlx.h"
 #include "key.h"
-#include "X11/X.h"
+#include "optX.h"
 #include "utils.h"
 #include "color.h"
 #include "transform.h"

@@ -6,7 +6,7 @@
 #    By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/22 06:51:52 by tkhemniw          #+#    #+#              #
-#    Updated: 2022/10/27 22:18:25 by tkhemniw         ###   ########.fr        #
+#    Updated: 2022/10/28 13:29:25 by tkhemniw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,13 +21,15 @@ INCS_DIR			= ./includes
 SRC_DIR				= ./srcs
 PRINTF_DIR			= ./libs/ft_printf
 LIBFT_DIR			= ./libs/libft
+X11_DIR				= ./x11
 MINILIBX_LINUX_DIR	= ./libs/minilibx-linux
 MINILIBX_MACOS_DIR	= ./libs/minilibx_macos
 
 #Includes
 INCLUDES 			= -I $(INCS_DIR)									\
 					  -I $(PRINTF_DIR)/includes							\
-					  -I $(LIBFT_DIR)/includes
+					  -I $(LIBFT_DIR)/includes							\
+					  -I $(X11_DIR)
 
 #Libraries
 LIBS				= -L $(PRINTF_DIR) -lftprintf						\

@@ -3,6 +3,10 @@
 		"utils.h": "c",
 		"cmath": "c",
 		"x.h": "c",
-		"random": "c"
+		"random": "c",
+		"keysym.h": "c",
+		"keysymdef.h": "c",
+		"optkeysym.h": "c",
+		"transform.h": "c"
 	}
 }

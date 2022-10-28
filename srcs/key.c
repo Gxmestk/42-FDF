@@ -6,11 +6,11 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 20:22:24 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/28 02:20:18 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/10/28 13:35:48 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <X11/keysym.h>
+#include "optkeysym.h"
 #include "ft_printf.h"
 #include "key.h"
 #include "defines.h"
