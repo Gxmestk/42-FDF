@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 20:22:24 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/27 22:35:50 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/10/28 02:20:18 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,32 @@ int	key_release(int keysym, t_mlx *mlx)
 	}
 	if (keysym == XK_2)
 	{
-		set_rot_ang(mlx, M_PI / 6, Z);
+		set_rot_ang(mlx, M_PI / 6, X);
 		draw_map(mlx);
 	}
 	if (keysym == XK_3)
 	{
-		set_rot_ang(mlx, 0, Z);
+		set_rot_ang(mlx, -(M_PI / 6), X);
+		draw_map(mlx);
+	}
+	if (keysym == XK_w)
+	{
+		mlx->tf.ty -= 10;
+		draw_map(mlx);
+	}
+	if (keysym == XK_d)
+	{
+		mlx->tf.tx += 10;
+		draw_map(mlx);
+	}
+	if (keysym == XK_s)
+	{
+		mlx->tf.ty += 10;
+		draw_map(mlx);
+	}
+	if (keysym == XK_a)
+	{
+		mlx->tf.tx -= 10;
 		draw_map(mlx);
 	}
 	return (0);

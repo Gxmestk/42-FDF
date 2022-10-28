@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 13:57:40 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/27 22:28:08 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/10/28 00:32:05 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,9 @@ void	transform(t_mlx *mlx, t_point *a, t_point *b)
 	/*if (mlx->tf.pov == ISO)
 		isometric(a, b);*/
 	//else if (mlx->pov == PAR)
+	rotate(&mlx->tf, a, b, X);
+	rotate(&mlx->tf, a, b, Y);
 	rotate(&mlx->tf, a, b, Z);
+	translate(&mlx->tf, a, b, X);
+	translate(&mlx->tf, a, b, Y);
 }

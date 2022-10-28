@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 02:10:06 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/27 22:34:42 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/10/28 01:40:06 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ void	isometric(t_point *a, t_point *b)
 void	set_rot_ang(t_mlx *mlx, float ang, int axis)
 {
 	if (axis == X)
-		mlx->tf.angx = ang;
+		mlx->tf.angx += ang;
 	if (axis == Y)
-		mlx->tf.angy = ang;
+		mlx->tf.angy += ang;
 	if (axis == Z)
-		mlx->tf.angz = ang;
+		mlx->tf.angz += ang;
 }
 
 void	rotate(t_transform *tf, t_point *a, t_point *b, int axis)
