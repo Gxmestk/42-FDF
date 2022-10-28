@@ -6,31 +6,23 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 02:10:06 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/28 01:40:06 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/10/29 02:14:15 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "transform.h"
 #include "math.h"
 #include "defines.h"
-#include <stdio.h>
 
 void	isometric(t_point *a, t_point *b)
 {
 	float	ang;
-	int		z;
 
-	z = a->coord[Z];
 	ang = M_PI / 3;
 	a->coord[X] = (a->coord[X] - a->coord[Y]) * cos(ang);
-	a->coord[Y] = (a->coord[X] + a->coord[Y]) * sin(ang) - z;
-	a->coord[X] += WX / 2;
-	a->coord[Y] += WY / 2;
-	z = b->coord[Z];
+	a->coord[Y] = (a->coord[X] + a->coord[Y]) * sin(ang) - a->coord[Z];
 	b->coord[X] = (b->coord[X] - b->coord[Y]) * cos(ang);
-	b->coord[Y] = (b->coord[X] + b->coord[Y]) * sin(ang) - z;
-	b->coord[X] += WX / 2;
-	b->coord[Y] += WY / 2;
+	b->coord[Y] = (b->coord[X] + b->coord[Y]) * sin(ang) - b->coord[Z];
 }
 
 void	set_rot_ang(t_mlx *mlx, float ang, int axis)

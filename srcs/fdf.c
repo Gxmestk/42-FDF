@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 10:18:17 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/28 13:58:37 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/10/29 02:18:33 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,15 @@ int	main(int argc, char **argv)
 	transform_setup(&mlx);
 	if (draw_map(&mlx) < 0)
 		error(ERR_MAP);
- /* mlx_hook(meta.vars.win, 3, 0, key_release, &meta);
+ /* 
 	mlx_hook(meta.vars.win, 4, 0, mouse_press, &meta);
 	mlx_hook(meta.vars.win, 5, 0, mouse_release, &meta);
 	mlx_hook(meta.vars.win, 6, 0, mouse_move, &meta);
 	mlx_hook(meta.vars.win, 17, 0, terminate_program, &meta);*/
 	mlx_loop_hook(mlx.mlx_ptr, no_event, &mlx);
 	mlx_hook(mlx.win_ptr, 3, 2, key_release, &mlx);
+	mlx_hook(mlx.win_ptr, 17, 0, key_release, &mlx);
 	mlx_loop(mlx.mlx_ptr);
-
 	free_map(&mlx.map);
 	mlx_destroy_image(mlx.mlx_ptr, mlx.img.mlx_img);
 	mlx_destroy_display(mlx.mlx_ptr);

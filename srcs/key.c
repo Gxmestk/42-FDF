@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 20:22:24 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/28 13:35:48 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/10/29 01:10:52 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ int	no_event(t_mlx *mlx)
 
 int	key_release(int keysym, t_mlx *mlx)
 {
-	static int i;
-	i++;
 	if (keysym == XK_Escape)
 	{
 		mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
@@ -43,12 +41,32 @@ int	key_release(int keysym, t_mlx *mlx)
 	}
 	if (keysym == XK_2)
 	{
-		set_rot_ang(mlx, M_PI / 6, X);
+		set_rot_ang(mlx, M_PI / 18, X);
 		draw_map(mlx);
 	}
 	if (keysym == XK_3)
 	{
-		set_rot_ang(mlx, -(M_PI / 6), X);
+		set_rot_ang(mlx, -(M_PI / 18), X);
+		draw_map(mlx);
+	}
+	if (keysym == XK_4)
+	{
+		set_rot_ang(mlx, M_PI / 18, Y);
+		draw_map(mlx);
+	}
+	if (keysym == XK_5)
+	{
+		set_rot_ang(mlx, -(M_PI / 18), Y);
+		draw_map(mlx);
+	}
+	if (keysym == XK_6)
+	{
+		set_rot_ang(mlx, M_PI / 18, Z);
+		draw_map(mlx);
+	}
+	if (keysym == XK_7)
+	{
+		set_rot_ang(mlx, -(M_PI / 18), Z);
 		draw_map(mlx);
 	}
 	if (keysym == XK_w)
