@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 15:09:46 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/27 21:09:43 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/10/29 18:41:15 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ t_color	itoc(int color)
 
 void	set_bg_color(t_mlx *mlx, int color_from, int color_to)
 {
-	mlx->bg_color_f = color_from;
-	mlx->bg_color_t = color_to;
+	mlx->bg.from = color_from;
+	mlx->bg.to = color_to;
 }
 
 void	set_map_color(t_map *map, int color)
@@ -68,7 +68,7 @@ void	set_map_color(t_map *map, int color)
 void	color_setup(t_mlx *mlx)
 {
 	set_bg_color(mlx, BLACK_PIXEL, DARK_GRAY_PIXEL);
-	set_map_color(&mlx->map, RED_PIXEL);
+	//set_map_color(&mlx->map, RED_PIXEL);
 }
 
 

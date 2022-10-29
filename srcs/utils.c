@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 12:39:20 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/29 08:34:36 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/10/29 17:33:44 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ void	draw_background(t_mlx *mlx)
 	t_point	b;
 
 	mlx->tf.istf = NO;
-	a.color = mlx->bg_color_f;
-	b.color = mlx->bg_color_t;
+	a.color = mlx->bg.from;
+	b.color = mlx->bg.to;
 	a.coord[X] = 0;
 	a.coord[Y] = 0;
 	b.coord[X] = WX;

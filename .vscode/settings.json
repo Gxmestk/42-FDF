@@ -10,6 +10,7 @@
 		"transform.h": "c",
 		"mlx_int.h": "c",
 		"stdio.h": "c",
-		"defines.h": "c"
+		"defines.h": "c",
+		"event.h": "c"
 	}
 }

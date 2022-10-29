@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 07:02:07 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/29 09:38:53 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/10/29 17:57:16 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define DEFINES_H
 
 #include "optkeysym.h"
+#include "optX.h"
 
 # define WX 1300
 # define WY 800
@@ -33,6 +34,7 @@
 # define LIGHT_GRAY_PIXEL 0xAEAEAE
 # define PEACH_PASTEL_PIXEL 0xFF7B74
 # define DARK_GRAY_PIXEL 0x5A6776
+
 typedef	struct s_color
 {
 	int	red;
@@ -92,9 +94,12 @@ typedef struct s_transform
 	float	angx;
 	float	angy;
 	float	angz;
+	int		iax;
+	int		iay;
 	int		tx;
 	int		ty;
-	int		tz;
+	int		ix;
+	int		iy;
 	int		pov;
 }	t_transform;
 
@@ -105,16 +110,21 @@ typedef struct s_event
 	int	anim;
 }	t_event;
 
+typedef struct s_background
+{
+	int	from;
+	int	to;
+}	t_background;
+
 typedef struct s_mlx
 {
-	t_map		map;
-	t_img		img;
-	int			bg_color_f;
-	int			bg_color_t;
-	t_event		e;
-	t_transform	tf;
-	void		*mlx_ptr;
-	void		*win_ptr;
+	t_map			map;
+	t_img			img;
+	t_background	bg;
+	t_event			e;
+	t_transform		tf;
+	void			*mlx_ptr;
+	void			*win_ptr;
 }	t_mlx;
 
 #if __linux__
@@ -127,6 +137,10 @@ typedef struct s_mlx
 # define RIGHT_CK    3
 # define SC_UP       4
 # define SC_DOWN     5
+# define B_MOTMASK		ButtonMotionMask
+# define B_RELMASk		ButtonReleaseMask
+# define B_PRSMASK		ButtonPressMask
+# define K_RELMASK		KeyReleaseMask
 
 #elif __APPLE__
 # define KEY_ESC     53
@@ -138,6 +152,10 @@ typedef struct s_mlx
 # define RIGHT_CK    2
 # define SC_UP       5
 # define SC_DOWN     4
+# define B_MOTMASK		0
+# define B_RELMASk		0
+# define B_PRSMASK		0
+# define K_RELMASK		0
 int	mlx_destroy_display(void *ptr);
 #endif
 

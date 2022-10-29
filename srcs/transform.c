@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 13:57:40 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/29 08:08:34 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/10/29 18:41:34 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void	transform_setup(t_mlx *mlx)
 	mlx->tf.angz = 0;
 	mlx->tf.tx = 0;
 	mlx->tf.ty = 0;
-	mlx->tf.tz = 0;
 	set_pov(&mlx->tf, ISO);
 }
 
