@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 12:39:20 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/27 14:34:26 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/10/29 08:34:36 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "defines.h"
 #include "mlx_optimize.h"
 #include "map.h"
+#include "mlx.h"
 
 void	swap_point(t_point *a, t_point *b)
 {
@@ -70,4 +71,11 @@ void	free_map(t_map *map)
 		free(map->p[i++]);
 	free(map->p);
 	i = 0;
+}
+
+int	close_window(t_mlx *mlx)
+{
+	mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
+	mlx->win_ptr = NULL;
+	return (0);
 }

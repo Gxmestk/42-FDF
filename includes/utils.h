@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 07:02:04 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/27 14:03:17 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/10/29 08:33:48 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,5 @@ void	free_map(t_map *map);
 void	atoi_form(char *str, t_point *p);
 void	draw_background(t_mlx *mlx);
 void	swap_point(t_point *a, t_point *b);
+int		close_window(t_mlx *mlx);
 #endif

@@ -6,14 +6,13 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 02:10:06 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/29 08:07:30 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/10/29 08:11:17 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "transform.h"
 #include "math.h"
 #include "defines.h"
-#include <stdio.h>
 
 void	isometric(t_point *a, t_point *b)
 {
@@ -26,7 +25,7 @@ void	isometric(t_point *a, t_point *b)
 	b->coord[Y] = (b->coord[X] + b->coord[Y]) * sin(ang) - b->coord[Z];
 }
 
-void	set_rot_ang(t_mlx *mlx, float ang, int axis)
+void	add_rot_ang(t_mlx *mlx, float ang, int axis)
 {
 	if (axis == X)
 		mlx->tf.angx += ang;

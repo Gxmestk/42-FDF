@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 02:45:30 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/29 06:26:05 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/10/29 08:08:45 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,9 +124,6 @@ int	draw_map(t_mlx *mlx)
 		return (-1);
 	draw_background(mlx);
 	draw_wireframe(mlx);
-	/*t_point a = {.coord[X] = 0, .coord[Y] = 0, .coord[Z] = 0 ,.color = PEACH_PASTEL_PIXEL};
-	t_point b = {.coord[X] = 700, .coord[Y] = 0, .coord[Z] = 0 ,.color = DARK_GRAY_PIXEL};
-	draw_line(mlx, a, b);*/
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img.mlx_img, 0, 0);
 	return (0);
 }

@@ -9,6 +9,7 @@
 		"optkeysym.h": "c",
 		"transform.h": "c",
 		"mlx_int.h": "c",
-		"stdio.h": "c"
+		"stdio.h": "c",
+		"defines.h": "c"
 	}
 }

@@ -6,7 +6,7 @@
 #    By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/22 06:51:52 by tkhemniw          #+#    #+#              #
-#    Updated: 2022/10/28 13:29:25 by tkhemniw         ###   ########.fr        #
+#    Updated: 2022/10/29 08:14:56 by tkhemniw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,13 +66,14 @@ SRCS				= $(SRC_DIR)/fdf.c \
 					  $(SRC_DIR)/errors.c \
 					  $(SRC_DIR)/color.c \
 					  $(SRC_DIR)/map_draw.c \
-					  $(SRC_DIR)/key.c \
+					  $(SRC_DIR)/event.c \
 					  $(SRC_DIR)/rotate.c \
 					  $(SRC_DIR)/translate.c \
 					  $(SRC_DIR)/zoom.c \
 					  $(SRC_DIR)/atoi_form.c \
 					  $(SRC_DIR)/transform.c \
-					  $(SRC_DIR)/mouse.c
+					  $(SRC_DIR)/mouse.c \
+					  $(SRC_DIR)/key.c
 
 #Object files 
 OBJS 				= $(SRCS:%.c=%.o)
