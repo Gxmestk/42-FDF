@@ -6,12 +6,13 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 13:57:40 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/29 02:14:36 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/10/29 07:26:55 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "defines.h"
 #include "transform.h"
+#include "math.h"
 
 void	midwin_origin(t_point *a, t_point *b)
 {
@@ -48,10 +49,11 @@ void	transform_setup(t_mlx *mlx)
 void	transform(t_mlx *mlx, t_point *a, t_point *b)
 {
 	midmap_origin(mlx, a, b);
-	if (mlx->tf.pov == ISO)
-		isometric(a, b);
+	/*if (mlx->tf.pov == ISO)
+		isometric(a, b);*/
 	rotate(&mlx->tf, a, b, X);
 	rotate(&mlx->tf, a, b, Y);
+	rotate(&mlx->tf, a, b, Z);
 	translate(&mlx->tf, a, b, X);
 	translate(&mlx->tf, a, b, Y);
 	midwin_origin(a, b);

@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 20:22:24 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/29 01:10:52 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/10/29 07:46:32 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 int	no_event(t_mlx *mlx)
 {
 	(void)mlx;
+	/*set_rot_ang(mlx, M_PI / 60, X);
+	draw_map(mlx);*/
 	return (0);
 }
 

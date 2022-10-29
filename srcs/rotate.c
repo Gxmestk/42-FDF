@@ -6,13 +6,14 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 02:10:06 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/29 02:14:15 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/10/29 08:07:30 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "transform.h"
 #include "math.h"
 #include "defines.h"
+#include <stdio.h>
 
 void	isometric(t_point *a, t_point *b)
 {
@@ -35,27 +36,30 @@ void	set_rot_ang(t_mlx *mlx, float ang, int axis)
 		mlx->tf.angz += ang;
 }
 
+static void	rot(int *x, int *y, float ang)
+{
+	int	tmp;
+
+	tmp = *x;
+	*x = *x * cos(ang) - *y * sin(ang);
+	*y = *y * cos(ang) + tmp * sin(ang);
+}
+
 void	rotate(t_transform *tf, t_point *a, t_point *b, int axis)
 {
 	if (axis == X)
 	{
-		a->coord[Y] = a->coord[Y] * cos(tf->angx) - a->coord[Z] * sin(tf->angx);
-		a->coord[Z] = a->coord[Z] * cos(tf->angx) + a->coord[Y] * sin(tf->angx);
-		b->coord[Y] = b->coord[Y] * cos(tf->angx) - b->coord[Z] * sin(tf->angx);
-		b->coord[Z] = b->coord[Z] * cos(tf->angx) + b->coord[Y] * sin(tf->angx);
+		rot(&a->coord[Y], &a->coord[Z], tf->angx);
+		rot(&b->coord[Y], &b->coord[Z], tf->angx);
 	}
 	if (axis == Y)
 	{
-		a->coord[X] = a->coord[X] * cos(tf->angy) - a->coord[Z] * sin(tf->angy);
-		a->coord[Z] = a->coord[Z] * cos(tf->angy) + a->coord[X] * sin(tf->angy);
-		b->coord[X] = b->coord[X] * cos(tf->angy) - b->coord[Z] * sin(tf->angy);
-		b->coord[Z] = b->coord[Z] * cos(tf->angy) + b->coord[X] * sin(tf->angy);
+		rot(&a->coord[X], &a->coord[Z], tf->angy);
+		rot(&b->coord[X], &b->coord[Z], tf->angy);
 	}
 	if (axis == Z)
 	{
-		a->coord[X] = a->coord[X] * cos(tf->angz) - a->coord[Y] * sin(tf->angz);
-		a->coord[Y] = a->coord[Y] * cos(tf->angz) + a->coord[X] * sin(tf->angz);
-		b->coord[X] = b->coord[X] * cos(tf->angz) - b->coord[Y] * sin(tf->angz);
-		b->coord[Y] = b->coord[Y] * cos(tf->angz) + b->coord[X] * sin(tf->angz);
+		rot(&a->coord[Y], &a->coord[X], tf->angz);
+		rot(&b->coord[Y], &b->coord[X], tf->angz);
 	}
 }
