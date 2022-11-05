@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 02:09:57 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/29 08:11:17 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/11/06 06:08:41 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,5 @@ void	add_rot_ang(t_mlx *mlx, float ang, int axis);
 void	translate(t_transform *tf, t_point *a, t_point *b,int axis);
 void	midmap_origin(t_mlx *mlx, t_point *a, t_point *b);
 void	midwin_origin(t_point *a, t_point *b);
+void	scale(t_transform *tf, t_point *a, t_point *b);
 #endif

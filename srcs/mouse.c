@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 22:08:31 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/29 18:34:26 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/11/06 05:05:04 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,9 @@ int	mouse_press(int butsym, int x, int y, t_mlx *mlx)
 		mlx->tf.iay = y;
 		mlx->e.r_ck = YES;
 	}
-		
+	if (butsym == SC_UP && mlx->tf.scale < MAX_SCALE)
+		mlx->tf.scale *= 1.25;
+	if (butsym == SC_DOWN)
+		mlx->tf.scale /= 1.25;
 	return (0);
 }
-

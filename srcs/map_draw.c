@@ -6,16 +6,16 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 02:45:30 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/29 17:37:54 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/11/06 06:27:02 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "math.h"
 #include "defines.h"
 #include "mlx.h"
 #include "mlx_optimize.h"
 #include "unistd.h"
-#include "ft_printf.h"
 #include "utils.h"
 #include "color.h"
 #include "transform.h"
@@ -63,7 +63,7 @@ static void	bresenham_l1(t_img *img, t_point a, t_point b, t_slope *m)
 			m->p += 2 * (m->dy - m->dx);
 			if (a.coord[Y] < b.coord[Y])
 				a.coord[Y]++;
-			else if(a.coord[Y] > b.coord[Y])
+			else if (a.coord[Y] > b.coord[Y])
 				a.coord[Y]--;
 		}
 		else
@@ -109,7 +109,7 @@ void	draw_wireframe(t_mlx *mlx)
 		{
 			a = mlx->map.p[i][j];
 			if (j < mlx->map.mapx - 1)
-				draw_line(mlx, a, mlx->map.p[i][j + 1]);	
+				draw_line(mlx, a, mlx->map.p[i][j + 1]);
 			if (i < mlx->map.mapy - 1)
 				draw_line(mlx, a, mlx->map.p[i + 1][j]);
 			j++;

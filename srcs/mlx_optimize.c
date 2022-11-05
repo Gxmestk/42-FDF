@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 07:41:56 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/29 17:35:25 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/11/06 04:10:43 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,7 @@ void	mlx_pix_put(t_img *img, t_point p)
 		i -= 8;
 	}
 }
-
-void	img_pix_put(t_img *img, int x, int y, int color)
+/*void	img_pix_put(t_img *img, int x, int y, int color)
 {
 	char	*pixel;
 	int		i;
@@ -75,21 +74,4 @@ void	img_pix_put(t_img *img, int x, int y, int color)
 			*pixel++ = (color >> (img->bpp - 8 - i)) & 0xFF;
 		i -= 8;
 	}
-}
-
-void	draw_basicbg(t_mlx *mlx)
-{
-	int	i;
-	int	j;
-
-	if (mlx->win_ptr == NULL)
-		return ;
-	i = 0;
-	while (i < WY)
-	{
-		j = 0;
-		while (j < WX)
-			img_pix_put(&mlx->img, j++, i, BLACK_PIXEL);
-		++i;
-	}
-}
+}*/

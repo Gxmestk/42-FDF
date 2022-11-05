@@ -6,7 +6,7 @@
 #    By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/22 06:51:52 by tkhemniw          #+#    #+#              #
-#    Updated: 2022/10/29 08:14:56 by tkhemniw         ###   ########.fr        #
+#    Updated: 2022/11/06 06:25:19 by tkhemniw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,21 +19,16 @@ RM					= /bin/rm -f
 #Directories
 INCS_DIR			= ./includes
 SRC_DIR				= ./srcs
-PRINTF_DIR			= ./libs/ft_printf
 LIBFT_DIR			= ./libs/libft
-X11_DIR				= ./x11
 MINILIBX_LINUX_DIR	= ./libs/minilibx-linux
 MINILIBX_MACOS_DIR	= ./libs/minilibx_macos
 
 #Includes
 INCLUDES 			= -I $(INCS_DIR)									\
-					  -I $(PRINTF_DIR)/includes							\
-					  -I $(LIBFT_DIR)/includes							\
-					  -I $(X11_DIR)
+					  -I $(LIBFT_DIR)/includes
 
 #Libraries
-LIBS				= -L $(PRINTF_DIR) -lftprintf						\
-					 -L $(LIBFT_DIR) -lft
+LIBS				= -L $(LIBFT_DIR) -lft
 
 #Mac or Linux
 UNAME = $(shell uname -s)
@@ -91,7 +86,6 @@ bonus:				all
 
 #Make .a
 libs:		
-			make -C $(PRINTF_DIR)
 			make -C $(LIBFT_DIR)
 			make -C $(MLX_DIR)
 
@@ -101,13 +95,11 @@ libs:
 
 #Cleaner
 clean:
-					make clean -C $(PRINTF_DIR)
 					make clean -C $(LIBFT_DIR)
 					make clean -C $(MLX_DIR)
 					$(RM) -r $(OBJS)
 
 fclean:				clean
-					make fclean -C $(PRINTF_DIR)
 					make fclean -C $(LIBFT_DIR)
 					make clean -C $(MLX_DIR)
 					$(RM) $(NAME)
@@ -125,11 +117,11 @@ debug:				$(OBJS) libs
 						$(CC) $(CFLAGS) $(OBJS) $(LIBS) $(MINILIBX_CC_FLAGS) -g -o $(NAME)
 
 norm:
-					clear && norminette $(SRC_DIR) $(LIBFT_DIR) $(PRINTF_DIR) | grep "Error"
+					clear && norminette $(SRC_DIR) $(LIBFT_DIR) | grep "Error"
 normh:
-					clear &&norminette -R CheckHeader $(SRC_DIR) $(LIBFT_DIR) $(PRINTF_DIR) | grep "Error"
+					clear &&norminette -R CheckHeader $(SRC_DIR) $(LIBFT_DIR) | grep "Error"
 normf:
-					clear && norminette -R CheckForbiddenSourceHeader $(SRC_DIR) $(LIBFT_DIR) $(PRINTF_DIR) | grep "Error"
+					clear && norminette -R CheckForbiddenSourceHeader $(SRC_DIR) $(LIBFT_DIR) | grep "Error"
 
 #.PHONY
 .PHONY:				all bonus libs clean fclean re code codeh norm normh normf debug

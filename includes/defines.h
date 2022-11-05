@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 07:02:07 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/29 17:57:16 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/11/06 06:20:47 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@
 
 # define WX 1300
 # define WY 800
+# define A -1
 # define X 0
 # define Y 1
 # define Z 2
 # define ISO 1
-# define PAR 2
+# define TOP 2
 # define YES 1
 # define NO 0
 # define ROTZ -2
@@ -34,6 +35,7 @@
 # define LIGHT_GRAY_PIXEL 0xAEAEAE
 # define PEACH_PASTEL_PIXEL 0xFF7B74
 # define DARK_GRAY_PIXEL 0x5A6776
+# define MAX_SCALE 300000
 
 typedef	struct s_color
 {
@@ -84,8 +86,9 @@ typedef struct s_map
 	int		fd;
 	int		mapx;
 	int		mapy;
+	int		cfrom;
+	int		cto;
 	t_point	**p;
-	float	scale;
 }	t_map;
 
 typedef struct s_transform
@@ -100,6 +103,8 @@ typedef struct s_transform
 	int		ty;
 	int		ix;
 	int		iy;
+	float	scale;
+	float	scalez;
 	int		pov;
 }	t_transform;
 
@@ -129,10 +134,14 @@ typedef struct s_mlx
 
 #if __linux__
 # define KEY_ESC     XK_Escape
-# define KEY_1       18
-# define KEY_2       19
-# define KEY_3       20
-# define KEY_TAB     48
+# define KEY_1       XK_1
+# define KEY_2       XK_2
+# define KEY_3       XK_3
+# define KEY_TAB     XK_Tab
+# define KEY_r		 XK_r
+# define KEY_z		 XK_z
+# define KEY_x		 XK_x
+# define KEY_space	 XK_space
 # define LEFT_CK     1
 # define RIGHT_CK    3
 # define SC_UP       4
@@ -148,6 +157,10 @@ typedef struct s_mlx
 # define KEY_2       19
 # define KEY_3       20
 # define KEY_TAB     48
+# define KEY_r		 15
+# define KEY_z		 6
+# define KEY_x		 7
+# define KEY_space	 49
 # define LEFT_CK     1
 # define RIGHT_CK    2
 # define SC_UP       5

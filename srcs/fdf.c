@@ -6,13 +6,13 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 10:18:17 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/29 17:12:53 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/11/06 06:23:04 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "mlx_optimize.h"
-#include "ft_printf.h"
 #include "errors.h"
 #include "map.h"
 #include "mlx.h"
@@ -56,7 +56,7 @@ int	main(int argc, char **argv)
 	transform_setup(&mlx);
 	if (draw_map(&mlx) < 0)
 		error(ERR_MAP);
-	mlx_loop_hook(mlx.mlx_ptr, no_event, &mlx);
+	mlx_loop_hook(mlx.mlx_ptr, animate, &mlx);
 	mlx_hook(mlx.win_ptr, 4, B_PRSMASK, mouse_press, &mlx);
 	mlx_hook(mlx.win_ptr, 5, B_RELMASk, mouse_release, &mlx);
 	mlx_hook(mlx.win_ptr, 6, B_MOTMASK, mouse_move, &mlx);

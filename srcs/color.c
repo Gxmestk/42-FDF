@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 15:09:46 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/29 18:41:15 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/11/06 05:19:18 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,29 +46,14 @@ void	set_bg_color(t_mlx *mlx, int color_from, int color_to)
 	mlx->bg.to = color_to;
 }
 
-void	set_map_color(t_map *map, int color)
+void	set_map_color(t_map *map, int color_from, int color_to)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < map->mapy)
-	{
-		j = 0;
-		while (j < map->mapx)
-		{
-			if (map->p[i][j].coord[Z] > 0)
-				 map->p[i][j].color = color;
-			j++;
-		}
-		i++;
-	}
+	map->cfrom = color_from;
+	map->cto = color_to;
 }
 
 void	color_setup(t_mlx *mlx)
 {
 	set_bg_color(mlx, BLACK_PIXEL, DARK_GRAY_PIXEL);
-	//set_map_color(&mlx->map, RED_PIXEL);
+	set_map_color(&mlx->map, WHITE_PIXEL, RED_PIXEL);
 }
-
-

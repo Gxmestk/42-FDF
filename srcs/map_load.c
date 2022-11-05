@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 10:57:24 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/29 18:45:04 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/11/06 04:31:08 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,9 @@ static void	set_coord(t_map *map, t_line *l)
 			dbl_free(l->splited);
 			error(ERR_FORM);
 		}
-		map->p[i][j].coord[X] = j * map->scale;
-		map->p[i][j].coord[Y] = i * map->scale;
+		map->p[i][j].coord[X] = j;
+		map->p[i][j].coord[Y] = i;
 		atoi_form(l->splited[j], &map->p[i][j]);
-		map->p[i][j].coord[Z] *= map->scale;
 		j++;
 	}
 	i++;
@@ -100,7 +99,6 @@ static void	init_map(t_map *map)
 {
 	map->mapx = 0;
 	map->mapy = 0;
-	map->scale = 4;
 }
 
 void	load_map(t_map *map, char *path)

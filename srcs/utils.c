@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 12:39:20 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/29 17:33:44 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/11/06 04:29:02 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,8 @@ int	close_window(t_mlx *mlx)
 {
 	mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
 	mlx->win_ptr = NULL;
+	free_map(&mlx->map);
+	mlx_destroy_image(mlx->mlx_ptr, mlx->img.mlx_img);
+	exit(0);
 	return (0);
 }

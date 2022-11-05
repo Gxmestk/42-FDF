@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:34:29 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/27 00:08:15 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/11/06 04:13:51 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,6 @@ void	atoi_form(char *str, t_point *p)
 	if (str[i++] == ',')
 		p->color = ft_atohi(&str[i]);
 	else
-		p->color = WHITE_PIXEL;
+		p->color = BLACK_PIXEL;
 	p->coord[Z] = result * sign;
 }
