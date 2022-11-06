@@ -6,11 +6,10 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 22:08:31 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/11/06 05:05:04 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/11/06 10:04:18 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "optkeysym.h"
 #include "event.h"
 #include "defines.h"
 #include "mlx.h"

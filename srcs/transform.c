@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 13:57:40 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/11/06 06:14:11 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/11/06 07:16:05 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	midmap_origin(t_mlx *mlx, t_point *a, t_point *b)
 
 void	set_pov(t_transform *tf, int mode)
 {
+	tf->angx = 0;
+	tf->angy = 0;
 	tf->pov = mode;
 }
 

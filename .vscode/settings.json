@@ -11,6 +11,8 @@
 		"mlx_int.h": "c",
 		"stdio.h": "c",
 		"defines.h": "c",
-		"event.h": "c"
+		"event.h": "c",
+		"optx.h": "c",
+		"string": "c"
 	}
 }

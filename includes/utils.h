@@ -6,14 +6,14 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 07:02:04 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/29 17:33:48 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/11/06 09:42:52 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UTILS_H
 # define UTILS_H
 
-#include "defines.h"
+# include "defines.h"
 
 void	dbl_free(char **ptr);
 void	free_map(t_map *map);

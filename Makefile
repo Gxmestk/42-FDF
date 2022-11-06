@@ -6,7 +6,7 @@
 #    By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/22 06:51:52 by tkhemniw          #+#    #+#              #
-#    Updated: 2022/11/06 06:25:19 by tkhemniw         ###   ########.fr        #
+#    Updated: 2022/11/06 09:10:39 by tkhemniw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,6 +68,7 @@ SRCS				= $(SRC_DIR)/fdf.c \
 					  $(SRC_DIR)/atoi_form.c \
 					  $(SRC_DIR)/transform.c \
 					  $(SRC_DIR)/mouse.c \
+					  $(SRC_DIR)/string_draw.c \
 					  $(SRC_DIR)/key.c
 
 #Object files 
@@ -117,11 +118,11 @@ debug:				$(OBJS) libs
 						$(CC) $(CFLAGS) $(OBJS) $(LIBS) $(MINILIBX_CC_FLAGS) -g -o $(NAME)
 
 norm:
-					clear && norminette $(SRC_DIR) $(LIBFT_DIR) | grep "Error"
+					clear && norminette $(SRC_DIR) $(LIBFT_DIR) $(INCS_DIR) | grep "Error"
 normh:
-					clear &&norminette -R CheckHeader $(SRC_DIR) $(LIBFT_DIR) | grep "Error"
+					clear &&norminette -R CheckHeader $(SRC_DIR) $(LIBFT_DIR) $(INCS_DIR)| grep "Error"
 normf:
-					clear && norminette -R CheckForbiddenSourceHeader $(SRC_DIR) $(LIBFT_DIR) | grep "Error"
+					clear && norminette -R CheckForbiddenSourceHeader $(SRC_DIR) $(LIBFT_DIR) $(INCS_DIR)| grep "Error"
 
 #.PHONY
 .PHONY:				all bonus libs clean fclean re code codeh norm normh normf debug

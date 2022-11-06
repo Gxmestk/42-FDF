@@ -6,15 +6,12 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 07:02:07 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/11/06 06:20:47 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/11/06 10:27:32 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEFINES_H
 # define DEFINES_H
-
-#include "optkeysym.h"
-#include "optX.h"
 
 # define WX 1300
 # define WY 800
@@ -37,7 +34,7 @@
 # define DARK_GRAY_PIXEL 0x5A6776
 # define MAX_SCALE 300000
 
-typedef	struct s_color
+typedef struct s_color
 {
 	int	red;
 	int	green;
@@ -47,10 +44,9 @@ typedef	struct s_color
 typedef struct s_gradient
 {
 	t_color	cdif;
-	t_color ori;
+	t_color	ori;
 	int		t;
 }	t_gradient;
-
 
 typedef struct s_slope
 {
@@ -71,7 +67,7 @@ typedef struct s_img
 typedef struct s_point
 {
 	int	coord[3];
-	int		color;
+	int	color;
 }	t_point;
 
 typedef struct s_line
@@ -113,6 +109,7 @@ typedef struct s_event
 	int	l_ck;
 	int	r_ck;
 	int	anim;
+	int	menu;
 }	t_event;
 
 typedef struct s_background
@@ -132,44 +129,47 @@ typedef struct s_mlx
 	void			*win_ptr;
 }	t_mlx;
 
-#if __linux__
-# define KEY_ESC     XK_Escape
-# define KEY_1       XK_1
-# define KEY_2       XK_2
-# define KEY_3       XK_3
-# define KEY_TAB     XK_Tab
-# define KEY_r		 XK_r
-# define KEY_z		 XK_z
-# define KEY_x		 XK_x
-# define KEY_space	 XK_space
-# define LEFT_CK     1
-# define RIGHT_CK    3
-# define SC_UP       4
-# define SC_DOWN     5
-# define B_MOTMASK		ButtonMotionMask
-# define B_RELMASk		ButtonReleaseMask
-# define B_PRSMASK		ButtonPressMask
-# define K_RELMASK		KeyReleaseMask
+# if __linux__
+#  define KEY_ESC     0xff1b
+#  define KEY_1       0x0031
+#  define KEY_2       0x0032
+#  define KEY_3       0x0033
+#  define KEY_TAB     0xff09
+#  define KEY_R		 0x0072
+#  define KEY_Z		 0x007a
+#  define KEY_X		 0x0078
+#  define KEY_H		 0x0068
+#  define KEY_SPACE	 0x0020
+#  define LEFT_CK     1
+#  define RIGHT_CK    3
+#  define SC_UP       4
+#  define SC_DOWN     5
+#  define B_MOTMASK	8192L
+#  define B_RELMASK	8L
+#  define B_PRSMASK	4L
+#  define K_RELMASK	2L
 
-#elif __APPLE__
-# define KEY_ESC     53
-# define KEY_1       18
-# define KEY_2       19
-# define KEY_3       20
-# define KEY_TAB     48
-# define KEY_r		 15
-# define KEY_z		 6
-# define KEY_x		 7
-# define KEY_space	 49
-# define LEFT_CK     1
-# define RIGHT_CK    2
-# define SC_UP       5
-# define SC_DOWN     4
-# define B_MOTMASK		0
-# define B_RELMASk		0
-# define B_PRSMASK		0
-# define K_RELMASK		0
+# elif __APPLE__
+#  define KEY_ESC     53
+#  define KEY_1       18
+#  define KEY_2       19
+#  define KEY_3       20
+#  define KEY_TAB     48
+#  define KEY_R		 15
+#  define KEY_Z		 6
+#  define KEY_X		 7
+#  define KEY_SPACE	 49
+#  define KEY_H		 4
+#  define LEFT_CK     1
+#  define RIGHT_CK    2
+#  define SC_UP       5
+#  define SC_DOWN     4
+#  define B_MOTMASK		0
+#  define B_RELMASK		0
+#  define B_PRSMASK		0
+#  define K_RELMASK		0
+
 int	mlx_destroy_display(void *ptr);
-#endif
+# endif
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 10:18:17 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/11/06 06:23:04 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/11/06 10:27:50 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 #include "map.h"
 #include "mlx.h"
 #include "event.h"
-#include "optX.h"
 #include "utils.h"
 #include "color.h"
 #include "transform.h"
@@ -58,7 +57,7 @@ int	main(int argc, char **argv)
 		error(ERR_MAP);
 	mlx_loop_hook(mlx.mlx_ptr, animate, &mlx);
 	mlx_hook(mlx.win_ptr, 4, B_PRSMASK, mouse_press, &mlx);
-	mlx_hook(mlx.win_ptr, 5, B_RELMASk, mouse_release, &mlx);
+	mlx_hook(mlx.win_ptr, 5, B_RELMASK, mouse_release, &mlx);
 	mlx_hook(mlx.win_ptr, 6, B_MOTMASK, mouse_move, &mlx);
 	mlx_hook(mlx.win_ptr, 17, 0, close_window, &mlx);
 	mlx_hook(mlx.win_ptr, 3, K_RELMASK, key_release, &mlx);

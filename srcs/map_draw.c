@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 02:45:30 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/11/06 06:27:02 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/11/06 07:58:16 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include "utils.h"
 #include "color.h"
 #include "transform.h"
+#include "map.h"
 
 static void	bresenham_m1(t_img *img, t_point a, t_point b, t_slope *m)
 {
@@ -125,5 +126,7 @@ int	draw_map(t_mlx *mlx)
 	draw_background(mlx);
 	draw_wireframe(mlx);
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img.mlx_img, 0, 0);
+	if (mlx->e.menu == YES)
+		draw_string(mlx);
 	return (0);
 }

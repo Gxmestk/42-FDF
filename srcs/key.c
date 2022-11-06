@@ -6,11 +6,10 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 08:36:09 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/11/06 06:10:20 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/11/06 10:12:01 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "optkeysym.h"
 #include "event.h"
 #include "defines.h"
 #include "mlx.h"
@@ -34,7 +33,7 @@ static void	color_key(int keysym, t_mlx *mlx)
 	if (keysym == KEY_3)
 	{
 		set_bg_color(mlx, GREEN_PIXEL, BLUE_PIXEL);
-		set_map_color(&mlx->map, LIGHT_GRAY_PIXEL, BLACK_PIXEL);
+		set_map_color(&mlx->map, LIGHT_GRAY_PIXEL, LIGHT_GRAY_PIXEL);
 	}
 }
 
@@ -47,20 +46,20 @@ static void	transform_key(int keysym, t_mlx *mlx)
 		else
 			set_pov(&mlx->tf, ISO);
 	}	
-	if (keysym == KEY_r)
+	if (keysym == KEY_R)
 		transform_setup(mlx);
-	if (keysym == KEY_space)
+	if (keysym == KEY_SPACE)
 	{
 		if (mlx->e.anim == NO)
 			mlx->e.anim = ROTZ;
 		else
 			mlx->e.anim = NO;
 	}
-	if (keysym == KEY_z)
+	if (keysym == KEY_Z)
 	{
 		mlx->tf.scalez *= 1.25;
 	}
-	if (keysym == KEY_x)
+	if (keysym == KEY_X)
 	{
 		mlx->tf.scalez /= 1.25;
 	}
@@ -70,6 +69,13 @@ int	key_release(int keysym, t_mlx *mlx)
 {
 	if (keysym == KEY_ESC)
 		close_window(mlx);
+	if (keysym == KEY_H)
+	{
+		if (mlx->e.menu == YES)
+			mlx->e.menu = NO;
+		else
+			mlx->e.menu = YES;
+	}
 	color_key(keysym, mlx);
 	transform_key(keysym, mlx);
 	return (0);

@@ -6,11 +6,10 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 08:15:27 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/11/06 06:28:50 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/11/06 10:04:10 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "optkeysym.h"
 #include "event.h"
 #include "defines.h"
 #include "mlx.h"
@@ -35,6 +34,7 @@ void	event_setup(t_mlx *mlx)
 	mlx->e.anim = NO;
 	mlx->e.l_ck = NO;
 	mlx->e.r_ck = NO;
+	mlx->e.menu = NO;
 }
 
 void	colorize(t_map *map, t_point *a, t_point *b)
@@ -45,6 +45,4 @@ void	colorize(t_map *map, t_point *a, t_point *b)
 		a->color = map->cfrom;
 	if (b->color == BLACK_PIXEL && b->coord[Z] > 0)
 		b->color = map->cto;
-	else if (a->color == BLACK_PIXEL)
-		b->color = map->cfrom;
 }
