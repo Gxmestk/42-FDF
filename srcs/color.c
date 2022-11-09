@@ -6,13 +6,12 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 15:09:46 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/11/06 05:19:18 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/11/09 17:24:13 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "color.h"
 #include "defines.h"
-#include <stdio.h>
 
 t_color	difcolor(t_point a, t_point b)
 {

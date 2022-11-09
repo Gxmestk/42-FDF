@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 10:18:17 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/11/09 17:12:38 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/11/09 17:26:25 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	mlx_setup(t_mlx *mlx)
 		free(mlx->mlx_ptr);
 		error(ERR_MLX);
 	}
-	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, WX, WY, "FDF");
+	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, WX, WY, "FDF Buy tkhemniw");
 	if (mlx->win_ptr == NULL)
 	{
 		mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);

@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:34:29 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/11/06 04:13:51 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/11/09 17:24:12 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 #include "defines.h"
 #include "utils.h"
 #include "libft.h"
-#include <stdio.h>
 
 static void	ft_tolower(char *str)
 {

@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 22:08:31 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/11/06 10:04:18 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/11/09 17:24:25 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 #include "defines.h"
 #include "mlx.h"
 #include "map.h"
-#include "unistd.h"
 #include "transform.h"
 #include "color.h"
 #include "math.h"
 #include "utils.h"
-#include <stdio.h>
 
 int	mouse_move(int x, int y, t_mlx *mlx)
 {
