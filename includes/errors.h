@@ -6,12 +6,14 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 07:02:05 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/10/22 20:26:10 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/11/09 18:02:23 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ERRORS_H
 # define ERRORS_H
+
+# include "defines.h"
 
 # define ERR_ARGS		"Error: Incorrect number of arguments, expected 1"
 # define ERR_OPEN		"Error: Can't open the file"
@@ -22,5 +24,5 @@
 # define ERR_FORM		"Error: Incorrect format."
 # define ERR_MLX		"Error: Can't initialize Minilibx."
 
-void	error(char *s);
+void	error(char *s, t_mlx *mlx);
 #endif

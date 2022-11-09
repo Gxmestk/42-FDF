@@ -13,6 +13,7 @@
 		"defines.h": "c",
 		"event.h": "c",
 		"optx.h": "c",
-		"string": "c"
+		"string": "c",
+		"errors.h": "c"
 	}
 }

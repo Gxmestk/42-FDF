@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 12:39:20 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/11/09 17:03:40 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/11/09 18:56:02 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,20 +67,23 @@ void	free_map(t_map *map)
 	int	i;
 
 	i = 0;
-	while (i < map->mapy)
+	if (map->p == NULL)
+		return ;
+	while (i < map->mapy && map->p[i])
 		free(map->p[i++]);
 	free(map->p);
-	i = 0;
 }
 
 int	close_window(t_mlx *mlx)
 {
 	free_map(&mlx->map);
 	mlx_destroy_image(mlx->mlx_ptr, mlx->img.mlx_img);
+	mlx->img.mlx_img = NULL;
 	mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
 	mlx->win_ptr = NULL;
 	mlx_destroy_display(mlx->mlx_ptr);
 	free(mlx->mlx_ptr);
+	mlx->mlx_ptr = NULL;
 	exit(0);
 	return (0);
 }
