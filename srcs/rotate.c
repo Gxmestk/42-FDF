@@ -6,14 +6,13 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 02:10:06 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/11/06 06:08:34 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/11/09 17:11:41 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "transform.h"
 #include "math.h"
 #include "defines.h"
-#include <stdio.h>
 
 void	isometric(t_point *a, t_point *b)
 {

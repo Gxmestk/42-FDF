@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 02:45:30 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/11/06 07:58:16 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/11/09 17:16:47 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include "defines.h"
 #include "mlx.h"
 #include "mlx_optimize.h"
-#include "unistd.h"
 #include "utils.h"
 #include "color.h"
 #include "transform.h"

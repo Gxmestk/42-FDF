@@ -6,11 +6,10 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 10:18:17 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/11/06 10:27:50 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/11/09 17:12:38 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdlib.h>
 #include "mlx_optimize.h"
 #include "errors.h"
@@ -22,7 +21,7 @@
 #include "transform.h"
 #include "event.h"
 
-static void	mlx_setup(t_mlx *mlx)
+void	mlx_setup(t_mlx *mlx)
 {
 	mlx->mlx_ptr = mlx_init();
 	if (mlx->mlx_ptr == NULL)
@@ -62,9 +61,5 @@ int	main(int argc, char **argv)
 	mlx_hook(mlx.win_ptr, 17, 0, close_window, &mlx);
 	mlx_hook(mlx.win_ptr, 3, K_RELMASK, key_release, &mlx);
 	mlx_loop(mlx.mlx_ptr);
-	free_map(&mlx.map);
-	mlx_destroy_image(mlx.mlx_ptr, mlx.img.mlx_img);
-	mlx_destroy_display(mlx.mlx_ptr);
-	free (mlx.mlx_ptr);
 	return (0);
 }

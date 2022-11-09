@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 08:36:09 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/11/06 10:12:01 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/11/09 17:16:20 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 #include "defines.h"
 #include "mlx.h"
 #include "map.h"
-#include "unistd.h"
 #include "transform.h"
 #include "color.h"
 #include "math.h"
 #include "utils.h"
-#include <stdio.h>
 
 static void	color_key(int keysym, t_mlx *mlx)
 {

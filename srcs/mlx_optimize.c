@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 07:41:56 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/11/06 04:10:43 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/11/09 17:11:02 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 #include "defines.h"
 #include "color.h"
 #include <math.h>
-#include <stdio.h>
+
+#if __APPLE__
 
 int	mlx_destroy_display(void *ptr)
 {
 	(void)ptr;
 	return (0);
 }
+#endif
 
 void	mlx_gradient(t_point *a, t_gradient *gra, int dis)
 {
