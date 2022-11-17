@@ -6,7 +6,7 @@
 /*   By: tkhemniw <gt.khemniwat@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 07:41:56 by tkhemniw          #+#    #+#             */
-/*   Updated: 2022/11/09 17:11:02 by tkhemniw         ###   ########.fr       */
+/*   Updated: 2022/11/17 16:21:04 by tkhemniw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ void	mlx_pix_put(t_img *img, t_point p)
 	char	*pixel;
 	int		i;
 
-	if ((p.coord[X] < 0 || p.coord[X] > WX)
-		|| (p.coord[Y] < 0 || p.coord[Y] > WY))
+	if ((p.coord[X] <= 0 || p.coord[X] >= WX)
+		|| (p.coord[Y] <= 0 || p.coord[Y] >= WY))
 		return ;
 	i = img->bpp - 8;
 	pixel = img->addr + (int)(p.coord[Y] * img->line_len \
